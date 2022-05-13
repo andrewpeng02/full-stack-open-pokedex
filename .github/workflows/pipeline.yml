@@ -33,3 +33,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "fso-part11"
           heroku_email: "andrewpeng02@gmail.com"
+          healthcheck: "https://fso-part11.herokuapp.com/health"
+          checkstring: "ok"
