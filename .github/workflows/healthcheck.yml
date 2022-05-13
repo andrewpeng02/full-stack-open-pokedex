@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Ping /health
-        ruses: jtalk/url-health-check-action@v2
+        uses: jtalk/url-health-check-action@v2
         with:
           url: https://fso-part11.herokuapp.com/health
