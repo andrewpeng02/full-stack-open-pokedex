@@ -41,7 +41,7 @@ jobs:
           healthcheck: "https://fso-part11.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
-        if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES), "#skip")}}
+        if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES), '#skip')}}
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
@@ -56,4 +56,4 @@ jobs:
           DEFAULT_BUMP: "patch"
         permissions:
           contents: write
-        if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES), "#skip")}}
+        if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES), '#skip')}}
