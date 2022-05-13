@@ -35,3 +35,4 @@ jobs:
           heroku_email: "andrewpeng02@gmail.com"
           healthcheck: "https://fso-part11.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true
