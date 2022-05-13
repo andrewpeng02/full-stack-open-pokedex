@@ -39,3 +39,4 @@ jobs:
           healthcheck: "https://fso-part11.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+        if: ${{ github.event_name == 'push' }}
