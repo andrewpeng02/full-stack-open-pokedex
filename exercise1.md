@@ -1,0 +1,5 @@
+Let's say I'm trying to deploy a flask backend using python. Linters don't seem to be as commonly used as compared to JavaScript, but there's a pip package called "pylint" that allows you to create a configuration and lint. To test flask, the official documentation recommends using pytest, creating a fixture that configures the application, and then tests using defined functions. For building, flask allows you to run a command to build for production. 
+
+Instead of npm, python has pip. You can use virtual environments like Anaconda, and define a requirements.txt file that has all the dependencies of your project. Besides Jenkins/GitHub, there are also other CI tools like TeamCity, Travis, Circleci, and Buddy.
+
+This setup would probably be better in a cloud-based environment, considering how small the application is. It's simply not worth the development time to configure a self-hosted solution, which would take more time and require your own hardware/server to run. However, larger applications are probably better run on self-hosted solutions to save on money, time, and increase flexibility.
