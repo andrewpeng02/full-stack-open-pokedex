@@ -8,6 +8,8 @@ on:
     branches: [master]
     types: [opened, synchronize]
 
+env:
+  COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message )}}
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -39,7 +41,7 @@ jobs:
           healthcheck: "https://fso-part11.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES), "#skip")}}
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
@@ -50,4 +52,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: "patch"
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES), "#skip")}}
